@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>NekoBeats Web - README</title>
+    <style>
+        body { font-family: monospace; max-width: 800px; margin: 40px auto; padding: 20px; background: #0a0a0a; color: #e0e0e0; line-height: 1.6; }
+        h1 { color: #00ccff; }
+        h2 { color: #fff; margin-top: 30px; }
+        a { color: #00ccff; }
+        code { background: #1a1a1a; padding: 2px 6px; border-radius: 4px; }
+        pre { background: #1a1a1a; padding: 12px; border-radius: 6px; overflow-x: auto; }
+        table { border-collapse: collapse; width: 100%; }
+        th, td { border: 1px solid #333; padding: 8px; text-align: left; }
+        th { background: #1a1a1a; }
+        hr { border-color: #333; }
+    </style>
+</head>
+<body>
+    <div id="content"></div>
+    
+    <script>
+        const path = window.location.pathname;
+        
+        if (path === "./README.md") {
+            document.getElementById("content").innerHTML = `
+                <h1>NekoBeats Web</h1>
+                <p>🎵 Real-time audio visualizer for your browser.</p>
+                <p>Upload any audio track and watch reactive visuals powered by Web Audio API.</p>
+                
+                <h2>Features</h2>
+                <ul>
+                    <li><strong>4 visualization modes</strong>: Bars, Wave, Mirror, Circle</li>
+                    <li><strong>5 color modes</strong>: Solid, Rainbow, Rainbow Multi, Gradient Bar, Gradient Global</li>
+                    <li><strong>4 effects</strong>: Bloom, Fade, Particles, Space background</li>
+                    <li><strong>7 bar themes</strong>: Default, Rounded, Thin, Hollow, Triangles, Dots, Space</li>
+                    <li><strong>Export/Import</strong> theme settings</li>
+                    <li><strong>Drag progress bar</strong> to seek</li>
+                    <li><strong>Loop</strong> toggle</li>
+                    <li><strong>Fullscreen</strong> support</li>
+                </ul>
+                
+                <h2>Controls</h2>
+                <table>
+                    <tr><th>Control</th><th>Description</th></tr>
+                    <tr><td>Upload track</td><td>Select audio file (MP3, WAV, OGG, etc.)</td></tr>
+                    <tr><td>Bar count</td><td>Number of frequency bars (16–256)</td></tr>
+                    <tr><td>Height scale</td><td>Amplitude multiplier</td></tr>
+                    <tr><td>Sensitivity</td><td>Frequency response gain</td></tr>
+                    <tr><td>Opacity</td><td>Bar transparency</td></tr>
+                    <tr><td>Smoothing</td><td>FFT time smoothing</td></tr>
+                    <tr><td>Rainbow speed</td><td>Hue rotation speed</td></tr>
+                    <tr><td>Bloom intensity</td><td>Glow strength</td></tr>
+                    <tr><td>Fade speed</td><td>Trail decay rate</td></tr>
+                    <tr><td>Particle count</td><td>Max particles on screen</td></tr>
+                </table>
+                
+                <h2>Keyboard Shortcuts</h2>
+                <p><em>(coming soon)</em></p>
+                
+                <h2>File Structure</h2>
+                <pre><code>NekoBeats-Web/
+├── index.html
+├── css/
+│   └── style.css
+├── js/
+│   ├── main.js        — init, audio, file upload
+│   ├── visualizer.js  — draw loops, all modes
+│   ├── effects.js     — bloom, fade, particles, space
+│   ├── controls.js    — slider/button listeners
+│   ├── themes.js      — theme export/import
+│   ├── visualizer-3d.js      — no longer using this file!! what it did: it allowed it to do 3d visualizations instead of 2d but it kept failing
+│   └── barthemes.js   — bar theme presets + validation
+└── barthemes/         — Built-in bar themes for each preset</code></pre>
+                
+                <p><em>📁 Note: visualizer-3d.js is no longer in use. It attempted 3D visualizations but kept failing.</em></p>
+                
+                <h2>Bar Theme Schema</h2>
+                <p>Export a bar theme to see the full schema. Required field: <code>name</code></p>
+                <p>Optional fields:</p>
+                <ul>
+                    <li><code>shape</code> - rect, rounded, line, hollow, triangle, dot, diamond</li>
+                    <li><code>width_multiplier</code> - bar width scale</li>
+                    <li><code>corner_radius</code> - for rounded shape</li>
+                    <li><code>gap</code> - pixels between bars</li>
+                    <li><code>bloom</code>, <code>fade</code>, <code>particles</code>, <code>space</code> - boolean toggles</li>
+                    <li><code>color_mode</code> - override global color mode</li>
+                    <li><code>rainbow_speed</code> - multiplier</li>
+                </ul>
+                
+                <h2>Browser Support</h2>
+                <p>Requires Web Audio API. Works in:</p>
+                <ul>
+                    <li>Chrome/Edge (desktop)</li>
+                    <li>Firefox</li>
+                    <li>Safari 14+</li>
+                </ul>
+                
+                <h2>License</h2>
+                <p>MIT</p>
+                
+                <h2>Author</h2>
+                <p>justchrisdevmeow</p>
+                
+                <hr>
+                <p><a href="./">← Back to NekoBeats</a></p>
+            `;
+        } else {
+            document.getElementById("content").innerHTML = `<h1>404</h1><p>Page not found.</p>`;
+        }
+    </script>
+</body>
+</html>
