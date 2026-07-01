@@ -414,6 +414,14 @@
       addLog('🐱 KittyDebug ready — meow!');
     })();
   </script>
+  
+  <script>
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('sw.js')
+            .then(() => console.log('[SW] Registered'))
+            .catch(err => console.error('[SW] Registration failed:', err));
+    }
+</script>
 
   <script src="js/main.js"></script>
   <script src="js/effects.js"></script>
